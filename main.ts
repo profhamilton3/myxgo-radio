@@ -12,13 +12,13 @@ radio.onReceivedNumber(function (receivedNumber) {
     } else if (4 == receivedNumber) {
         xgo.move_xgo(xgo.direction_enum.Backward, 50)
     } else if (5 == receivedNumber) {
-    	
+        xgo.move_xgo(xgo.direction_enum.Left, 50)
     } else if (6 == receivedNumber) {
-    	
+        xgo.move_xgo(xgo.direction_enum.Forward, 50)
     } else if (7 == receivedNumber) {
-    	
+        xgo.move_xgo(xgo.direction_enum.Right, 50)
     } else if (8 == receivedNumber) {
-    	
+        xgo.move_xgo(xgo.direction_enum.Backward, 50)
     } else if (9 == receivedNumber) {
     	
     } else if (10 == receivedNumber) {
