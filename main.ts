@@ -4,36 +4,41 @@ radio.onReceivedNumber(function (receivedNumber) {
         xgo.move_xgo(xgo.direction_enum.Forward, 100)
         basic.showArrow(ArrowNames.North)
     } else if (2 == receivedNumber) {
-        xgo.rotate(xgo.rotate_enum.Left, 65)
-        basic.showArrow(ArrowNames.West)
-    } else if (3 == receivedNumber) {
-        xgo.rotate(xgo.rotate_enum.Right, 50)
         basic.showArrow(ArrowNames.East)
+        xgo.rotate_angle_continue(xgo.rotate_direction_enum.turn_left, 15, 0.5)
+        xgo.move_xgo(xgo.direction_enum.Forward, 50)
+    } else if (3 == receivedNumber) {
+        basic.showArrow(ArrowNames.West)
+        xgo.rotate_angle_continue(xgo.rotate_direction_enum.turn_right, 15, 1)
+        xgo.move_xgo(xgo.direction_enum.Forward, 50)
     } else if (4 == receivedNumber) {
-        xgo.move_xgo(xgo.direction_enum.Backward, 75)
+        xgo.move_xgo(xgo.direction_enum.Backward, 25)
         basic.showArrow(ArrowNames.South)
     } else if (5 == receivedNumber) {
-        xgo.move_xgo(xgo.direction_enum.Left, 50)
-        basic.showArrow(ArrowNames.NorthWest)
-    } else if (6 == receivedNumber) {
-        xgo.move_xgo(xgo.direction_enum.Forward, 65)
         basic.showArrow(ArrowNames.NorthEast)
+        xgo.rotate_angle_continue(xgo.rotate_direction_enum.turn_left, 60, 1)
+    } else if (6 == receivedNumber) {
+        basic.showIcon(IconNames.Umbrella)
+        xgo.rotate_angle_continue(xgo.rotate_direction_enum.turn_left, 120, 2)
     } else if (7 == receivedNumber) {
-        xgo.move_xgo(xgo.direction_enum.Right, 50)
         basic.showArrow(ArrowNames.SouthWest)
+        xgo.rotate_angle_continue(xgo.rotate_direction_enum.turn_right, 60, 1)
     } else if (8 == receivedNumber) {
-        xgo.move_xgo(xgo.direction_enum.Backward, 20)
         basic.showArrow(ArrowNames.SouthEast)
+        basic.showIcon(IconNames.Cow)
+        xgo.rotate_angle_continue(xgo.rotate_direction_enum.turn_right, 120, 2)
     } else if (9 == receivedNumber) {
-        basic.showNumber(5)
+        basic.showNumber(3)
         xgo.execution_action(xgo.action_enum.Handshake)
     } else if (10 == receivedNumber) {
     	
     } else if (11 == receivedNumber) {
     	
     } else if (12 == receivedNumber) {
+        basic.showIcon(IconNames.Butterfly)
         xgo.execution_action(xgo.action_enum.Twirl_Pitch)
     } else if (13 == receivedNumber) {
+        basic.showIcon(IconNames.StickFigure)
         xgo.execution_action(xgo.action_enum.Twirl_Yaw)
     } else if (14 == receivedNumber) {
     	
@@ -49,16 +54,11 @@ radio.onReceivedNumber(function (receivedNumber) {
 input.onButtonPressed(Button.A, function () {
     basic.showIcon(IconNames.Happy)
     xgo.execution_action(xgo.action_enum.Sit_down)
-    xgo.execution_action(xgo.action_enum.Wave)
-    basic.showIcon(IconNames.Asleep)
 })
 input.onButtonPressed(Button.B, function () {
     music._playDefaultBackground(music.builtInPlayableMelody(Melodies.Wawawawaa), music.PlaybackMode.InBackground)
     basic.showIcon(IconNames.Skull)
     xgo.execution_action(xgo.action_enum.Pee)
-    xgo.move_xgo(xgo.direction_enum.Left, 25)
-    basic.pause(2000)
-    xgo.execution_action(xgo.action_enum.Default_posture)
     basic.showIcon(IconNames.Happy)
 })
 input.onLogoEvent(TouchButtonEvent.Pressed, function () {
@@ -67,9 +67,9 @@ input.onLogoEvent(TouchButtonEvent.Pressed, function () {
     xgo.execution_action(xgo.action_enum.Handshake)
     music.play(music.builtinPlayableSoundEffect(soundExpression.giggle), music.PlaybackMode.InBackground)
 })
-radio.setGroup(5)
-basic.showNumber(5)
+radio.setGroup(3)
+basic.showNumber(3)
 radio.setFrequencyBand(33)
 radio.setTransmitPower(7)
 xgo.init_xgo_serial(SerialPin.P2, SerialPin.P1)
-radio.sendNumber(5)
+radio.sendNumber(3)
